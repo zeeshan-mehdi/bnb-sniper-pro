@@ -20,19 +20,42 @@ app.set('view engine', 'ejs');
 //app.use(app.engine('ejs'));
 
 app.get('/', function(req, res) {
- res.render('index',{user:{email:'abcd'}});
+ res.render('report',{user:{email:'abcd'}});
 });  
 
 app.post('/mail',function(req,res){
     console.log(req.body);
 
-    let user = Json.parse(req.body);
+    let user = req.body;
     sendEmail(user);
+
+    // ejs.renderFile(path.join(__dirname, './views/', "report.ejs"), {user:user}, (err, data) => {
+    //   if (err) {
+    //         res.send(err);
+    //   } else {
+    //       let options = {
+    //           "height": "11.25in",
+    //           "width": "8.5in",
+    //           "header": {
+    //               "height": "20mm"
+    //           },
+    //           "footer": {
+    //               "height": "20mm",
+    //           },
+    //       };
+    //       pdf.create(data, options).toFile("report.pdf", function (err, data) {
+    //           if (err) {
+    //               res.send(err);
+    //           } else {
+    //               res.send("File created successfully");
+    //           }
+    //       });
+    //   }
 
     res.send('mail sent successfully');
    });
 
-function sendEmail(user){
+async function sendEmail(user){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
