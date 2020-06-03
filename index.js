@@ -28,11 +28,7 @@ app.post('/mail',function(req,res){
 
     let user = req.body;
 
-
-    if(isJson(user)){
-      user = JSON.parse(user);
-    }
-
+    
     sendEmail(user);
 
     // ejs.renderFile(path.join(__dirname, './views/', "report.ejs"), {user:user}, (err, data) => {
@@ -60,12 +56,6 @@ app.post('/mail',function(req,res){
 
     res.send('mail sent successfully');
    });
-
-
-function isJson(obj) {
-    var t = typeof obj;
-    return ['boolean', 'number', 'string', 'symbol', 'function'].indexOf(t) == -1;
-}
 
 async function sendEmail(user){
   var transporter = nodemailer.createTransport({
