@@ -49,7 +49,8 @@ app.post('/mail',function(req,res){
               }
           });
       }
-});
+    
+})});
 
 startServer();
 
