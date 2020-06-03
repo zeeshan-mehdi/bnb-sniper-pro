@@ -23,13 +23,13 @@ app.get('/', function(req, res) {
  res.render('report',{user:{email:'abcd'}});
 });  
 
-app.post('/mail',function(req,res){
+app.post('/mail',async function(req,res){
     console.log(req.body);
 
     let user = req.body;
 
     
-    sendEmail(user);
+    let status = await sendEmail(user);
 
     // ejs.renderFile(path.join(__dirname, './views/', "report.ejs"), {user:user}, (err, data) => {
     //   if (err) {
@@ -54,10 +54,11 @@ app.post('/mail',function(req,res){
     //       });
     //   }
 
-    res.send('mail sent successfully');
+    res.send(status);
    });
 
 async function sendEmail(user){
+  let status;
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -75,13 +76,14 @@ async function sendEmail(user){
     html: data
   };
   
-  transporter.sendMail(mailOptions, function(error, info){
+  await transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      status = error;
     } else {
-      console.log('Email sent: ' + info.response);
+      status = info.response;
     }
   });
+  return status;
 }
 
 startServer();
