@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Created by pdf2htmlEX (https://github.com/coolwanglu/pdf2htmlex) -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="css/base.min.css" />
+    <link rel="stylesheet" href="css/fancy.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/compatibility.min.js"></script>
+    <script src="js/theViewer.min.js"></script>
+    <script>
+        try {
+            theViewer.defaultViewer = new theViewer.Viewer({});
+        } catch (e) { }
+    </script>
+    <title></title>
+</head>
+
+<body>
+    <div id="sidebar">
+        <div id="outline">
+        </div>
+    </div>
+    <div id="page-container">
+        <div id="pf1" class="pf w0 h0" data-page-no="1">
+            <div class="pc pc1 w0 h0"><img class="bi x0 y0 w1 h1" alt="" src="bg1.png" />
+                <div class="t m0 x1 h2 y1 ff1 fs0 fc0 sc0 ls0 ws0">BNB Sniper Pro Weekly Report</div>
+                <div class="t m0 x1 h3 y2 ff2 fs1 fc0 sc0 ls0 ws0">Reporting url : <%= user.url%></div>
+                <div class="t m0 x1 h3 y3 ff2 fs1 fc0 sc0 ls0 ws0">Report made for : <span
+                        class="fc1"><%= user.email%></span></div>
+                <div class="t m0 x1 h3 y4 ff2 fs1 fc0 sc0 ls0 ws0">This report covers statistics of first 20 records of
+                    the results from url </div>
+                <div class="t m0 x1 h3 y5 ff2 fs1 fc0 sc0 ls0 ws0">listed above fetched from Airbnb website. </div>
+                <div class="t m0 x1 h3 y6 ff2 fs1 fc0 sc0 ls0 ws0">Average of Prices : <%= user.avgPrice%> </div>
+                <div class="t m0 x1 h3 y7 ff2 fs1 fc0 sc0 ls0 ws0">Average of Ratings: <%= user.avgRating%></div>
+                <div class="t m0 x1 h3 y8 ff2 fs1 fc0 sc0 ls0 ws0">Average of Review Quantities : <%= user.avgQuantity%></div>
+                <div class="t m0 x1 h3 y9 ff2 fs1 fc0 sc0 ls0 ws0">Average of Beds: <%= user.avgBeds%> </div>
+                <div class="t m0 x1 h3 ya ff2 fs1 fc0 sc0 ls0 ws0">Average of Bathrooms:<%= user.avgBaths%> </div>
+                <div class="t m0 x1 h3 yb ff2 fs1 fc0 sc0 ls0 ws0">Number of SuperHosts:<%= user.superHosts%> </div><a class="l"
+                    href="mailto:abc@gmail.com">
+                    <div class="d m1"
+                        style="border-style:none;position:absolute;left:190.889008px;bottom:626.507019px;width:104.483978px;height:19.531006px;background-color:rgba(255,255,255,0.000001);">
+                    </div>
+                </a>
+            </div>
+            <div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div>
+        </div>
+    </div>
+    <div class="loading-indicator">
+
+    </div>
+</body>
+
+</html>
